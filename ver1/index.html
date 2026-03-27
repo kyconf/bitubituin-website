@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ringtone Zone — WAP 2.0</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Ticker bar -->
+  <div class="ticker-bar">
+    <div class="ticker-inner">
+      <span>WAP 2.0</span>
+      <span class="sep">|</span>
+      <span>RINGTONE ZONE</span>
+      <span class="sep">|</span>
+      <span>★ NEW ARRIVALS ★</span>
+      <span class="sep">|</span>
+      <span>WAP 2.0</span>
+      <span class="sep">|</span>
+      <span>RINGTONE ZONE</span>
+      <span class="sep">|</span>
+      <span>★ NEW ARRIVALS ★</span>
+    </div>
+  </div>
+
+  <!-- Phone shell -->
+  <div class="phone-wrap">
+    <div class="phone">
+
+      <!-- Top speaker / brand -->
+      <div class="phone-top">
+        <div class="speaker-left"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="brand-name">dpdr</div>
+        <div class="speaker-right"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <!-- Screen -->
+      <div class="screen">
+        <div class="status-bar">
+          <div class="signal">
+            <span class="bar b1"></span>
+            <span class="bar b2"></span>
+            <span class="bar b3"></span>
+            <span class="bar b4"></span>
+          </div>
+          <div class="screen-title">RINGTONE ZONE</div>
+          <div class="battery">
+            <div class="battery-fill"></div>
+          </div>
+        </div>
+
+        <div class="screen-body">
+          <div class="music-icon">♪</div>
+
+          <div class="song-info">
+            <div class="song-title" id="songTitle">BITU BITUIN</div>
+            <div class="song-artist" id="songArtist">DANTE PAOLO</div>
+          </div>
+
+          <div class="input-box">
+            <span id="inputDisplay"></span>
+            <span class="cursor" id="cursor">_</span>
+          </div>
+
+          <button class="btn-preview" id="previewBtn">▶ PREVIEW</button>
+          <button class="btn-set" id="setBtn">| SET AS RINGTONE</button>
+        </div>
+      </div>
+
+      <!-- Nav buttons -->
+      <div class="nav-row">
+        <button class="nav-side" id="backBtn">◀ BACK</button>
+        <button class="nav-side" id="clrBtn">CLR</button>
+        <button class="nav-side" id="callBtn">CALL ▶</button>
+      </div>
+
+      <!-- D-pad -->
+      <div class="dpad">
+        <button class="dpad-btn dpad-up" data-dir="up">▲</button>
+        <div class="dpad-mid">
+          <button class="dpad-btn dpad-left" data-dir="left">◀</button>
+          <button class="dpad-btn dpad-ok" id="okBtn">OK</button>
+          <button class="dpad-btn dpad-right" data-dir="right">▶</button>
+        </div>
+        <button class="dpad-btn dpad-down" data-dir="down">▼</button>
+      </div>
+
+      <!-- Numpad -->
+      <div class="numpad">
+        <button class="num-btn" data-num="1"><span class="num">1</span><span class="sub">&nbsp;</span></button>
+        <button class="num-btn" data-num="2"><span class="num">2</span><span class="sub">ABC</span></button>
+        <button class="num-btn" data-num="3"><span class="num">3</span><span class="sub">DEF</span></button>
+        <button class="num-btn" data-num="4"><span class="num">4</span><span class="sub">GHI</span></button>
+        <button class="num-btn" data-num="5"><span class="num">5</span><span class="sub">JKL</span></button>
+        <button class="num-btn" data-num="6"><span class="num">6</span><span class="sub">MNO</span></button>
+        <button class="num-btn" data-num="7"><span class="num">7</span><span class="sub">PQRS</span></button>
+        <button class="num-btn" data-num="8"><span class="num">8</span><span class="sub">TUV</span></button>
+        <button class="num-btn" data-num="9"><span class="num">9</span><span class="sub">WXYZ</span></button>
+        <button class="num-btn" data-num="*"><span class="num">*</span><span class="sub">&nbsp;</span></button>
+        <button class="num-btn" data-num="0"><span class="num">0</span><span class="sub">&nbsp;</span></button>
+        <button class="num-btn" data-num="#"><span class="num">#</span><span class="sub">&nbsp;</span></button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
