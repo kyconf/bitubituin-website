@@ -34,7 +34,7 @@ body {
 
 /* ---------------- HARDWARE BODY ---------------- */
 .phone {
-    scale:0.95;
+    scale:0.90;
     position: relative;
     width: 310px;
     height: 660px; /* Slightly taller to give bottom buttons breathing room */
@@ -514,7 +514,7 @@ margin-top: 10px;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.6); /* Transparent Gray */
-    backdrop-filter: blur(2px);     /* Optional: adds a nice frosted look */
+    backdrop-filter: blur(4px);     /* Optional: adds a nice frosted look */
     display: flex;
     justify-content: center;
     text-align:center;
@@ -522,7 +522,7 @@ margin-top: 10px;
     z-index: 10000;                /* High value to stay on top */
     cursor: pointer;
     color: rgb(224, 224, 224);
-  
+    font-size: 14px;
     letter-spacing: 2px;
 }
 
