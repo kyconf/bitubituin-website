@@ -42,3 +42,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("interaction-overlay");
+    const header = document.getElementById("ui-header");
+    const phone = document.querySelector(".phone");
+    const audio = document.getElementById("incoming-call-audio");
+    const uiIcon = document.getElementById("ui-icon");
+    
+    const btnLeft = document.getElementById("ui-btn");
+    const btnRight = document.getElementById("ui-footer");
+
+    let hasInteracted = false;
+    let missedCallTimer; // Variable to store the 3s timer
+
+    // 1. Initial State (Before Interaction)
+    phone.classList.add("vibrating");
+    header.classList.add("blinking");
+
+// 2. The Main Interaction (The "Gate")
+    overlay.addEventListener("click", () => {
+        if (hasInteracted) return;
+        hasInteracted = true;
+
+        // Fade and Remove Overlay
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+            overlay.style.display = "none";
+        }, 500);
+
+        // Start Ringtone
+        audio.play().catch(e => console.log("Audio play blocked", e));
+
+        // 9 second timer: 
+        // This allows the full 7s of audio + the 2s fade out 
+        // before switching the UI.
+        missedCallTimer = setTimeout(() => {
+            switchToMissedCallUI();
+        }, 9000); 
+    });
+    // 3. The UI Switcher
+    function switchToMissedCallUI() {
+        // Clear the timer so it doesn't run twice if triggered by a button
+        clearTimeout(missedCallTimer);
+
+    
+        audio.pause();
+        audio.currentTime = 0;
+
+        phone.classList.remove("vibrating");
+        header.classList.remove("blinking");
+
+        header.innerText = "- 1 MISSED CALL -";
+        header.classList.add("missed-call-text");
+        
+        uiIcon.classList.add("missed");
+        
+
+        btnLeft.innerText = "VIEW";
+        btnRight.innerText = "BACK";
+    }
+
+ 
+    btnLeft.addEventListener('click', () => {
+        if (hasInteracted) switchToMissedCallUI();
+    });
+
+    btnRight.addEventListener('click', () => {
+        if (hasInteracted) switchToMissedCallUI();
+    });
+});

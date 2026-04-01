@@ -5,48 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Phone</title>
     <link rel="stylesheet" href="style.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<div id="interaction-overlay">
+    <div class="overlay-text">TAP ANYWHERE TO LISTEN</div>
+</div>
+
+<audio id="incoming-call-audio" src="BTBNringtone.mp3"></audio>
 <div class="phone">
     <div class="top-jack"></div>
     <div class="side-button volume-rocker"></div>
     <div class="side-button power-button"></div>
 
-
-
     <div class="silver-bezel">
         <div class="screen-border">
-                <div class="earpiece-container">
-                    
-        <div class="earpiece"></div>
-        <div class="helo"> test </div>
-    </div>
+            <div class="earpiece-container">      
+                <div class="earpiece"></div>
+                <div class="helo"> ᜊᜒᜆᜓᜊᜒᜆᜓᜁᜈ᜔ </div>
+            </div>
+            
             <div class="screen">
-                
-                <div class="glass-glare"></div> <div class="status-bar">
-                    <span class="signal">illl</span>
-                    <span class="app-title">RINGTONE ZONE</span>
-                    <span class="battery">🔋</span>
+
+                <div class="status-bar">
+                    <span class="signal"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-signal-medium-icon lucide-signal-medium"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/></svg></span>
+                    <span class="app-title">5<span class="blinking-colon">:</span>15 PM</span>
+                    <span class="battery"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-battery-medium-icon lucide-battery-medium"><path d="M10 14v-4"/><path d="M22 14v-4"/><path d="M6 14v-4"/><rect x="2" y="6" width="16" height="12" rx="2"/></svg></span>
                 </div>
-                
-                <div class="music-ui">
-                    <div class="header">- NEW RELEASE -</div>
-                    <div class="icon">🎵</div>
-                    <h2 class="song-title">BITUBITUIN</h2>
-                    <h3 class="artist">DANTE PAOLO</h3>
-                    
-                    <div class="progress-container"></div>
-                    
-                    <button id="preview-btn" class="preview-btn">▶ PREVIEW</button>
-                    <div class="footer-action">↓ SET AS RINGTONE</div>
-                </div>
+
+<div id="main-content" class="music-ui"> <div id="ui-header" class="header">- INCOMING CALL -</div>
+    <div id="ui-icon" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call-icon lucide-phone-call"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></div>
+    <h2 id="ui-title" class="song-title">DPDR</h2>
+    <h3 id="ui-subtitle" class="artist">- UNKNOWN NUMBER -</h3>
+    
+
+    
+<div class="soft-keys">
+    
+        <div id="ui-btn" class="soft-key-label sk-left">ANSWER</div>
+        <div id="ui-footer" class="soft-key-label sk-right">REJECT</div>
+    </div>
+</div>
+
+
+
+
+                <div class="glass-glare"></div> 
             </div>
         </div>
 
         <div class="action-controls">
             <button class="action-btn left-action">
-                <span class="icon1">◄</span> BACK
+                <span class="icon1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-icon lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></span>
             </button>
             
             <div class="d-pad-container">
@@ -55,7 +70,7 @@
             </div>
             
             <button class="action-btn right-action">
-                CALL <span class="icon1">►</span>
+        <span class="icon2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-outgoing-icon lucide-phone-outgoing"><path d="m16 8 6-6"/><path d="M22 8V2h-6"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></span>
             </button>
         </div>
     </div>
@@ -76,5 +91,6 @@
     </div>
 </div>
 
-<script src="script.js"></script> </body>
+<script src="script.js"></script> 
+</body>
 </html>
