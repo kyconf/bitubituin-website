@@ -1,3 +1,6 @@
+html {
+    overflow: hidden;
+}
 :root {
     --lavender-base: #b487bf;
     --lavender-shadow: #736199;
@@ -29,7 +32,7 @@ body {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
-  
+  overflow: hidden;
 }
 
 /* ---------------- HARDWARE BODY ---------------- */
@@ -508,6 +511,7 @@ margin-top: 10px;
 
 
 #interaction-overlay {
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -524,6 +528,7 @@ margin-top: 10px;
     color: rgb(224, 224, 224);
     font-size: 14px;
     letter-spacing: 2px;
+
 }
 
 /* Fade out effect */
