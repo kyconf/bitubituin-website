@@ -65,6 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (hasInteracted) return;
         hasInteracted = true;
 
+
+        if (navigator.vibrate) {
+        // Pattern logic: 
+        // 1000ms (1s) Vibrate
+        // 2000ms (2s) Pause
+        // Repeat 3 times to cover 9 seconds total
+        navigator.vibrate([1000, 2000, 1000, 2000, 1000]);
+    }
         // Fade and Remove Overlay
         overlay.style.opacity = "0";
         setTimeout(() => {
