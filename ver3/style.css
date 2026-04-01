@@ -436,10 +436,10 @@ margin-top: 10px;
 
 .soft-keys {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     /* This pushes the labels slightly away from the very edge of the curve */
-    padding: 0 30px 5px 30px; 
+    gap: 10px;
     box-sizing: border-box;
     margin-top: 2.5vh;
 }
