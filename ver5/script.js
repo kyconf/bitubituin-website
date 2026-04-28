@@ -18,23 +18,24 @@ document.addEventListener("DOMContentLoaded", () => {
     header.classList.add("blinking");
     phone.classList.add("vibrating");
 
-    overlay.addEventListener("click", () => {
-        if (hasInteracted) return;
-        hasInteracted = true;
+// Update your Overlay Click Event
+overlay.addEventListener("click", () => {
+    if (hasInteracted) return;
+    hasInteracted = true;
 
-        overlay.style.opacity = "0";
-        setTimeout(() => overlay.style.display = "none", 500);
+    overlay.style.opacity = "0";
+    setTimeout(() => overlay.style.display = "none", 500);
 
-        // Stop vibration but KEEP header blinking
-        phone.classList.remove("vibrating");
-        
-        header.innerText = "- PLAYING -";
-        header.classList.add("blinking"); // Re-apply class after text change
-        uiIcon.classList.add("blinking"); // Make the reel-to-reel icon blink too
+    phone.classList.remove("vibrating");
+    
+    header.innerText = "- PLAYING -";
+    btnLeft.innerText = "PAUSE";
 
-        audio.play().catch(e => console.log("Audio play blocked", e));
-        btnLeft.innerText = "PAUSE";
-    });
+    // SYNC BOTH HERE
+    syncBlinking([header, uiIcon]);
+
+    audio.play().catch(e => console.log("Audio play blocked", e));
+});
 
     // 2. Progress Bar Sync
     audio.addEventListener('timeupdate', () => {
@@ -46,24 +47,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 3. Play/Pause Logic
-    btnLeft.addEventListener('click', () => {
-        if (!hasInteracted) return;
+// Update your Play/Pause Button Logic
+btnLeft.addEventListener('click', () => {
+    if (!hasInteracted) return;
 
-        if (audio.paused) {
-            audio.play();
-            btnLeft.innerText = "PAUSE";
-            header.innerText = "- PLAYING -";
-            header.classList.add("blinking");
-            uiIcon.classList.add("blinking");
-        } else {
-            audio.pause();
-            btnLeft.innerText = "PLAY";
-            header.innerText = "- PAUSED -";
-            header.classList.remove("blinking"); // Stop blinking when paused
-            uiIcon.classList.remove("blinking");
-        }
-    });
+    if (audio.paused) {
+        audio.play();
+        btnLeft.innerText = "PAUSE";
+        header.innerText = "- PLAYING -";
+        
+        // SYNC BOTH HERE ON RESUME
+        syncBlinking([header, uiIcon]);
+    } else {
+        audio.pause();
+        btnLeft.innerText = "PLAY";
+        header.innerText = "- PAUSED -";
+        header.classList.remove("blinking");
+        uiIcon.classList.remove("blinking");
+    }
+});
 
     audio.addEventListener('ended', () => {
         btnLeft.innerText = "REPLAY";
@@ -79,3 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 });
+
+// Add this helper function at the bottom of your script
+function syncBlinking(elements) {
+    elements.forEach(el => {
+        el.classList.remove("blinking");
+        void el.offsetWidth; // This "magic" line forces the browser to reset the animation
+        el.classList.add("blinking");
+    });
+}
