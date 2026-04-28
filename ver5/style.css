@@ -555,7 +555,7 @@ margin-top: 10px;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6); /* Transparent Gray */
+   
     backdrop-filter: blur(4px);     /* Optional: adds a nice frosted look */
     display: flex;
     justify-content: center;
@@ -566,6 +566,17 @@ margin-top: 10px;
     color: rgb(224, 224, 224);
     font-size: 14px;
     letter-spacing: 2px;
+
+
+    background: rgba(0, 0, 0, 0.4); /* Darken the tint slightly */
+    
+    /* 1. Add the Webkit prefix for iOS */
+    -webkit-backdrop-filter: blur(12px) saturate(150%); 
+    backdrop-filter: blur(12px) saturate(150%);
+    
+    /* 2. The "GPU Kick": Forces the phone to use its graphics chip */
+    transform: translateZ(0);
+    will-change: backdrop-filter;
 
 }
 
