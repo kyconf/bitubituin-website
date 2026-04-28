@@ -33,6 +33,15 @@ body {
   font-weight: 400;
   font-style: normal;
   overflow: hidden;
+
+
+  /* Prevent text selection */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Standard syntax (Chrome, Firefox, Opera) */
+    
+    /* Optional: Prevents the blue "tap highlight" on mobile devices */
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* ---------------- HARDWARE BODY ---------------- */
